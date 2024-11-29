@@ -40,6 +40,164 @@ const STATIC_APPLICATIONS = [
 
 
 
+// const LeaderboardCard = ({ title, data, showRank = true }) => {
+//   const [sortedData, setSortedData] = useState([]);
+  
+//   useEffect(() => {
+//     if (!Array.isArray(data)) {
+//       console.error('Data is not iterable:', data);
+//       setSortedData([]); // Fallback to an empty array
+//       return;
+//     }
+  
+//     const sortData = () => {
+//       const newData = [...data].sort((a, b) => {
+//         const valueA = typeof a.revenue === 'string'
+//           ? Number(a.revenue.replace(/[^0-9.-]+/g, ""))
+//           : Number(a.revenue);
+//         const valueB = typeof b.revenue === 'string'
+//           ? Number(b.revenue.replace(/[^0-9.-]+/g, ""))
+//           : Number(b.revenue);
+//         return valueB - valueA;
+//       });
+//       setSortedData(newData);
+//     };
+  
+//     sortData();
+//   }, [data]);
+//   return (
+//     <div className="bg-gray-900/50 backdrop-blur-md border border-gray-800 rounded-xl p-8 relative">
+//       <div className="mb-6">
+//         <div className="flex items-center gap-3">
+//           <TrendingUp className="h-6 w-6 text-blue-400" />
+//           <h2 className="text-xl font-medium text-gray-100">{title}</h2>
+//         </div>
+//       </div>
+//       <div className="grid gap-4 max-h-[470px] overflow-y-auto pr-2" style={{  scrollbarColor: "#000011" }}>
+//         {sortedData.map((item, index) => (
+//           <div
+//             key={item.name}
+//             className="group flex items-start justify-between p-3 hover:bg-gray-800/50 rounded-lg transition-colors duration-200"
+//             style={{ minHeight: '80px' }}
+//           >
+//             <div className="flex items-start gap-4">
+//               {showRank && (
+//                 <div className="text-gray-500 font-mono w-6 pt-1">
+//                   {(index + 1).toString().padStart(2, '0')}
+//                 </div>
+//               )}
+//               <div className="flex-1">
+//                 <div className="font-medium text-gray-100 mb-1">
+//                   {showRank ? item.resident : item.house}
+//                 </div>
+//                 <div className={`text-sm ${HOUSE_COLORS[item.house]}`}>
+//                   {showRank ? item.house : item.detail}
+//                 </div>
+//               </div>
+//             </div>
+//             <div className="text-right flex-shrink-0">
+//               <div className="font-mono font-semibold text-gray-100 mb-1">
+//                 {typeof item.revenue === 'number' ? `$${item.revenue.toLocaleString()}` : item.revenue}
+//                 {typeof item.change !== 'undefined' && (
+//                   <span
+//                     className={`ml-2 text-sm ${item.change > 0 ? 'text-green-400' : 'text-red-400'}`}
+//                   >
+//                     {item.change > 0 ? '↑' : '↓'} {Math.abs(item.change)}%
+//                   </span>
+//                 )}
+//               </div>
+//               {showRank && <div className="text-sm text-gray-400">{item.detail}</div>}
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+// LeaderboardCard.displayName = 'LeaderboardCard';
+
+// const LeaderboardCard = ({ title, data, showRank = true }) => {
+//   const [sortedData, setSortedData] = useState([]);
+  
+//   useEffect(() => {
+//     if (!Array.isArray(data)) {
+//       console.error('Data is not iterable:', data);
+//       setSortedData([]); // Fallback to an empty array
+//       return;
+//     }
+  
+//     const sortData = () => {
+//       const newData = [...data].sort((a, b) => {
+//         const valueA = typeof a.revenue === 'string'
+//           ? Number(a.revenue.replace(/[^0-9.-]+/g, ""))
+//           : Number(a.revenue);
+//         const valueB = typeof b.revenue === 'string'
+//           ? Number(b.revenue.replace(/[^0-9.-]+/g, ""))
+//           : Number(b.revenue);
+//         return valueB - valueA;
+//       });
+//       setSortedData(newData);
+//     };
+  
+//     sortData();
+//   }, [data]);
+
+//   return (
+//     <div className="bg-gray-900/50 backdrop-blur-md border border-gray-800 rounded-xl p-8 relative">
+//       <div className="mb-6">
+//         <div className="flex items-center gap-3">
+//           <TrendingUp className="h-6 w-6 text-blue-400" />
+//           <h2 className="text-xl font-medium text-gray-100">{title}</h2>
+//         </div>
+//       </div>
+//       <div
+//         className="grid gap-4 max-h-[470px] pr-2"
+//         style={{
+//           overflowX: 'hidden', // Hide horizontal scrollbar
+//           overflowY: 'auto', // Allow vertical scrolling
+//           scrollbarColor: "#000011", // Custom scrollbar color (optional)
+//         }}
+//       >
+//         {sortedData.map((item, index) => (
+//           <div
+//             key={item.name}
+//             className="group flex items-start justify-between p-3 hover:bg-gray-800/50 rounded-lg transition-colors duration-200"
+//             style={{ minHeight: '80px' }}
+//           >
+//             <div className="flex items-start gap-4">
+//               {showRank && (
+//                 <div className="text-gray-500 font-mono w-6 pt-1">
+//                   {(index + 1).toString().padStart(2, '0')}
+//                 </div>
+//               )}
+//               <div className="flex-1">
+//                 <div className="font-medium text-gray-100 mb-1">
+//                   {showRank ? item.resident : item.house}
+//                 </div>
+//                 <div className={`text-sm ${HOUSE_COLORS[item.house]}`}>
+//                   {showRank ? item.house : item.detail}
+//                 </div>
+//               </div>
+//             </div>
+//             <div className="text-right flex-shrink-0">
+//               <div className="font-mono font-semibold text-gray-100 mb-1">
+//                 {typeof item.revenue === 'number' ? `$${item.revenue.toLocaleString()}` : item.revenue}
+//                 {typeof item.change !== 'undefined' && (
+//                   <span
+//                     className={`ml-2 text-sm ${item.change > 0 ? 'text-green-400' : 'text-red-400'}`}
+//                   >
+//                     {item.change > 0 ? '↑' : '↓'} {Math.abs(item.change)}%
+//                   </span>
+//                 )}
+//               </div>
+//               {showRank && <div className="text-sm text-gray-400">{item.detail}</div>}
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
 const LeaderboardCard = ({ title, data, showRank = true }) => {
   const [sortedData, setSortedData] = useState([]);
   
@@ -65,20 +223,29 @@ const LeaderboardCard = ({ title, data, showRank = true }) => {
   
     sortData();
   }, [data]);
+
   return (
-    <div className="bg-gray-900/50 backdrop-blur-md border border-gray-800 rounded-xl p-8 relative">
+    <div className="bg-gray-900/50 backdrop-blur-md border overflow-x-hidden overflow-y-hidden border-gray-800 rounded-xl p-8 relative" style={{ scrollbarColor: "#000011" }}>
       <div className="mb-6">
         <div className="flex items-center gap-3">
           <TrendingUp className="h-6 w-6 text-blue-400" />
           <h2 className="text-xl font-medium text-gray-100">{title}</h2>
         </div>
       </div>
-      <div className="grid gap-4 max-h-[470px] overflow-y-auto pr-2" style={{  scrollbarColor: "#000011" }}>
+      <div
+        className="grid gap-4 max-h-[470px] pr-2"
+        style={{
+          overflowX: 'hidden', // Hide horizontal scrollbar
+          overflowY: 'scroll', // Allow vertical scrolling
+          scrollbarColor: "#000011", // Hide scrollbar color if needed
+           // For smooth scrolling on iOS
+        }}
+      >
         {sortedData.map((item, index) => (
           <div
             key={item.name}
             className="group flex items-start justify-between p-3 hover:bg-gray-800/50 rounded-lg transition-colors duration-200"
-            style={{ minHeight: '80px' }}
+            style={{ minHeight: '80px', scrollbarColor: "#000011"}}
           >
             <div className="flex items-start gap-4">
               {showRank && (
@@ -114,6 +281,10 @@ const LeaderboardCard = ({ title, data, showRank = true }) => {
     </div>
   );
 };
+
+LeaderboardCard.displayName = 'LeaderboardCard';
+
+
 LeaderboardCard.displayName = 'LeaderboardCard';
 
 const LeaderboardCard1 = ({ title, data, showRank = true }) => {
@@ -272,6 +443,28 @@ const TwitterFeed = memo(() => {
   );
 });
 
+
+import { Loader2 } from 'lucide-react';
+
+const CoolLoading = () => {
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+      <div className="flex flex-col items-center space-y-4">
+        <Loader2 
+          className="h-16 w-16 text-blue-500 animate-spin" 
+          strokeWidth={2} 
+        />
+        <div className="text-white text-xl font-semibold tracking-wide">
+          Loading...
+        </div>
+        <div className="w-64 h-1 bg-gray-700 rounded-full overflow-hidden">
+          <div className="h-full bg-blue-500 animate-progress-pulse"></div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 TwitterFeed.displayName = 'TwitterFeed';
 
 export default function DashboardDemo() {
@@ -338,41 +531,41 @@ export default function DashboardDemo() {
   console.log(gitData)
 
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <CoolLoading/>;
   if (error) return <div>Error: {error}</div>;
 
-  const topRevenue = [
-    { name: "Alpha Team", house: "Pioneer House", value: "$1,234,567", change: 12, detail: "45 projects" },
-    { name: "Beta Squad", house: "Innovator House", value: "$987,654", change: -5, detail: "38 projects" },
-    { name: "Gamma Group", house: "Creator House", value: "$876,543", change: 8, detail: "42 projects" },
-    { name: "Delta Force", house: "Builder House", value: "$765,432", change: 3, detail: "35 projects" },
-    { name: "Epsilon Unit", house: "Maker House", value: "$654,321", change: -2, detail: "31 projects" }
-  ];
+  // const topRevenue = [
+  //   { name: "Alpha Team", house: "Pioneer House", value: "$1,234,567", change: 12, detail: "45 projects" },
+  //   { name: "Beta Squad", house: "Innovator House", value: "$987,654", change: -5, detail: "38 projects" },
+  //   { name: "Gamma Group", house: "Creator House", value: "$876,543", change: 8, detail: "42 projects" },
+  //   { name: "Delta Force", house: "Builder House", value: "$765,432", change: 3, detail: "35 projects" },
+  //   { name: "Epsilon Unit", house: "Maker House", value: "$654,321", change: -2, detail: "31 projects" }
+  // ];
 
-  const topGrants = [
-    { name: "Research X", house: "Visionary House", value: "$300,000", change: 15, detail: "AI Research" },
-    { name: "Project Y", house: "Founder House", value: "$450,000", change: 7, detail: "Blockchain" },
-    { name: "Initiative Z", house: "Pioneer House", value: "$400,000", change: -3, detail: "Climate Tech" },
-    { name: "Program A", house: "Creator House", value: "$350,000", change: 5, detail: "Biotech" },
-    { name: "Study B", house: "Innovator House", value: "$500,000", change: 10, detail: "Quantum Computing" }
+  // const topGrants = [
+  //   { name: "Research X", house: "Visionary House", value: "$300,000", change: 15, detail: "AI Research" },
+  //   { name: "Project Y", house: "Founder House", value: "$450,000", change: 7, detail: "Blockchain" },
+  //   { name: "Initiative Z", house: "Pioneer House", value: "$400,000", change: -3, detail: "Climate Tech" },
+  //   { name: "Program A", house: "Creator House", value: "$350,000", change: 5, detail: "Biotech" },
+  //   { name: "Study B", house: "Innovator House", value: "$500,000", change: 10, detail: "Quantum Computing" }
   
-  ];
+  // ];
 
-  const topInvestments = [
-    { name: "Venture 1", house: "Builder House", value: "$2,000,000", change: 20, detail: "Series A" },
-    { name: "Startup 2", house: "Maker House", value: "$1,500,000", change: -8, detail: "Seed Round" },
-    { name: "Company 3", house: "Visionary House", value: "$1,200,000", change: 15, detail: "Series B" },
-    { name: "Project 4", house: "Founder House", value: "$900,000", change: 6, detail: "Angel Round" },
-    { name: "Enterprise 5", house: "Pioneer House", value: "$800,000", change: -4, detail: "Pre-seed" }
-  ];
+  // const topInvestments = [
+  //   { name: "Venture 1", house: "Builder House", value: "$2,000,000", change: 20, detail: "Series A" },
+  //   { name: "Startup 2", house: "Maker House", value: "$1,500,000", change: -8, detail: "Seed Round" },
+  //   { name: "Company 3", house: "Visionary House", value: "$1,200,000", change: 15, detail: "Series B" },
+  //   { name: "Project 4", house: "Founder House", value: "$900,000", change: 6, detail: "Angel Round" },
+  //   { name: "Enterprise 5", house: "Pioneer House", value: "$800,000", change: -4, detail: "Pre-seed" }
+  // ];
 
-  const topGitHub = [
-    { resident: "Basim Al Harbi", house: "Arcadia",   detail: "commando" },
-    { resident: "Paritosh Kulkarni", house: "Arcadia",   detail: "antiaging_app" },
-    { resident: "Abilash Senthilkumar", house: "Bangalore",   detail: "InstaAR-Augmented-Reality" },
-    { resident: "Pulkit Garg", house: "Bangalore",  detail: "openai-swarm-node" },
-    { resident: "Nirbhay Singh Narang", house: "New York",   detail: "InvenTree-iOS" }
-  ];
+  // const topGitHub = [
+  //   { resident: "Basim Al Harbi", house: "Arcadia",   detail: "commando" },
+  //   { resident: "Paritosh Kulkarni", house: "Arcadia",   detail: "antiaging_app" },
+  //   { resident: "Abilash Senthilkumar", house: "Bangalore",   detail: "InstaAR-Augmented-Reality" },
+  //   { resident: "Pulkit Garg", house: "Bangalore",  detail: "openai-swarm-node" },
+  //   { resident: "Nirbhay Singh Narang", house: "New York",   detail: "InvenTree-iOS" }
+  // ];
 
  
   return (
