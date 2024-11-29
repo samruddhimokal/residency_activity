@@ -1,0 +1,18 @@
+[
+    {
+        "error": "User nick-leland not found or GitHub API error",
+        "house_name": "New York"
+    },
+    {
+        "error": "User rishabh28patni not found or GitHub API error",
+        "house_name": "New York"
+    },
+    {
+        "error": "User ryanx2002 not found or GitHub API error",
+        "house_name": "New York"
+    },
+    {
+        "error": "User akshaynarisetti not found or GitHub API error",
+        "house_name": "SF"
+    }
+]
