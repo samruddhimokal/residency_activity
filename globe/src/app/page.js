@@ -388,7 +388,7 @@ export default function DashboardDemo() {
       residents: 'https://script.googleusercontent.com/macros/echo?user_content_key=_Hn7XQ1Tz05t8KFXVgC0XcOv9qqR82x5fPeJhorGztcnQFSeMkm0x3JMUjBAfXDvAd6SGSSdHo8j6g9a5chj0BneMvC-6aSYm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnCRfytznPhufLoQ0A_qwCpAWuu2yCiWw02b8C_JplW3M-BaFmpSV9dMvgTYx5Jpj8xtXuny5gyM0ohIgDacCEvpsCbtnK4XfiQ&lib=MHFQDdH3kqbOE-evStmhhjMMngc_g7vfE',
       grants: 'https://script.google.com/macros/s/AKfycbxO6pSArxbJy9hh1lXDqcTQCcoaGr3Xa53UGuUYUWSQQBh-WlI8K2gbHvto5oL0L0yY/exec',
       investments: 'https://script.google.com/macros/s/AKfycbwl-7uKWzTPUNV6btxMrUSj0efWo9-41kVx-3bnpwVopxRXirGwrAJpz9GVID60JuMt3Q/exec',
-      houses:"https://script.googleusercontent.com/macros/echo?user_content_key=yawgMUS-uaIkd004IryvhN9GHffMhci-DKAf6R-5_f6lEDiA8y9WtSuJMeyWIHuAvyIX7B14w6gRcIadzZtDL302RlAfwQlpm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnNPEugizz5HSeF_ttZuLgpWwLpxgsEw7rR4meR5_67XptVCgKPgonMioIYdmfER9kIhC2x9LEUuyC_FnVo9zHNE2yrPrPF3qgtz9Jw9Md8uu&lib=MpWCmBbv8BIEZ-C71fGN3YX7dSxyY7qhE",
+      houses:"https://script.google.com/macros/s/AKfycbzSQlWRV0Se0Ju1Oaf8EyAG4dpU0rOyESbNL7dFti5qyd06nS7G_YK4EguQMWwyVncFAg/exec",
      git:"http://localhost:3005/scrape_multiple_github"
     };
 
